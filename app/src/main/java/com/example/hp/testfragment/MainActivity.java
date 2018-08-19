@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.viewpagerindicator.CirclePageIndicator;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
     PagerFragmentAdapter mAdapter;
     private BottomNavigationView bottomNavigationView;
     ViewPager mPager;
@@ -20,12 +20,13 @@ public class MainActivity extends AppCompatActivity {
 
         mAdapter = new PagerFragmentAdapter(getSupportFragmentManager(),getApplicationContext());
         Toast.makeText(this,"onCreate Activity",Toast.LENGTH_SHORT).show();
+
         mPager = (ViewPager) findViewById(R.id.pager);
+        mPager.setOffscreenPageLimit(1);
+
         mPager.getCurrentItem();
         //  mPager.setCurrentItem(0);
         // mPager.setOffscreenPageLimit(1);
-
-       // mPager.setOffscreenPageLimit(4);
 
         mPager.setAdapter(mAdapter);
 
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 System.out.println("selected page is :" + position);
+
                // Toast.makeText(getApplicationContext(),"onPageSelected" + "Position:" +position,Toast.LENGTH_SHORT).show();
 
                 Log.d("onPageSelected",position+"");

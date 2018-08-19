@@ -29,17 +29,35 @@ public class pagerFragment2 extends Fragment {
 
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.activity_delivery, null);
         txtfragment2=(TextView) root.findViewById(R.id.txtfragment2);
-        txtfragment2.setText("FR 2");
-      //  Toast.makeText(getActivity(),"Fragment 2",Toast.LENGTH_SHORT).show();
+         Toast.makeText(getActivity()," onCreateView Fragment 2",Toast.LENGTH_SHORT).show();
 
         return root;
 
+    }
+    @Override
+    public void setUserVisibleHint(boolean visible){
+        if(visible){
+           Toast.makeText(getActivity(), Singleton.getInstance().getData()+"",Toast.LENGTH_SHORT).show();
+            txtfragment2.setText(Singleton.getInstance().getData());
+            Singleton.getInstance().setData("Data From Fragment 2 ");
+
+            //load content
+        }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(KEY_CONTENT, imageSource);
+    }
+
+
+
+    @Override
+    public void onStart() {
+        Toast.makeText(getActivity()," onStart Fragment 2",Toast.LENGTH_SHORT).show();
+
+        super.onStart();
     }
 
     @Override

@@ -37,10 +37,20 @@ public class pagerFragment3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.activity_addressender, null);
-        Toast.makeText(getActivity(),"Fragment 3",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(),"Fragment 3",Toast.LENGTH_SHORT).show();
         txtfragment3=(TextView) root.findViewById(R.id.txtfragment3);
         txtfragment3.setText("FR 3");
         return root;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean visible){
+        if(visible){
+            Toast.makeText(getActivity(), Singleton.getInstance().getData()+"",Toast.LENGTH_SHORT).show();
+
+
+            //load content
+        }
     }
 
     @Override

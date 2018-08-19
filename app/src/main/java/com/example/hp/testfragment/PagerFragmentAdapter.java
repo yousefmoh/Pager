@@ -10,7 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 /**
  * Created by hp on 7/29/2018.
  */
-public class PagerFragmentAdapter extends FragmentPagerAdapter {
+public class PagerFragmentAdapter extends FragmentPagerAdapter implements  OnFragmentInteractionListener {
 
     private int mCount = 4;
     private Context context;
@@ -23,7 +23,7 @@ public class PagerFragmentAdapter extends FragmentPagerAdapter {
     context = mContext; //pass context
 }*/
 
-    public PagerFragmentAdapter(FragmentManager fragmentManager, Context m_context) {
+    public PagerFragmentAdapter(FragmentManager fragmentManager, Context m_context)  {
         super(fragmentManager);
         context=m_context;
     }
@@ -139,4 +139,9 @@ public class PagerFragmentAdapter extends FragmentPagerAdapter {
             notifyDataSetChanged();
         }
     }
+
+    @Override
+    public void onFragmentInteraction(String name, String desc) {
+
+   }
 }
